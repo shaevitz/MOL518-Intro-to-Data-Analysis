@@ -1,0 +1,1 @@
+funny_number = "6-7"
