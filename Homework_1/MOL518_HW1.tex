@@ -1,0 +1,148 @@
+% MOL518 Homework 1
+% (Edit due date, points, and any course policy text as needed.)
+
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{listings}
+
+\hypersetup{colorlinks=true, linkcolor=blue, urlcolor=blue, citecolor=blue}
+
+% Simple code listing style
+\lstset{
+  basicstyle=\ttfamily\small,
+  frame=single,
+  breaklines=true,
+  showstringspaces=false,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  stringstyle=\color{teal}
+}
+
+\newcommand{\course}{MOL518: Intro to Data Analysis}
+\newcommand{\hwnum}{Homework 1}
+\newcommand{\duedate}{\textbf{Due:} \underline{\hspace{2.5in}}}
+
+\begin{document}
+
+\begin{center}
+{\Large \course}\\[2pt]
+{\large \hwnum}\\[6pt]
+\duedate\\[10pt]
+\end{center}
+
+\noindent\textbf{Name:} \underline{\hspace{2.5in}} \hfill \textbf{NetID:} \underline{\hspace{1.5in}}\\
+\textbf{Section/Preceptor (if applicable):} \underline{\hspace{2.2in}}
+
+\vspace{10pt}
+
+\section*{Instructions}
+\begin{itemize}[leftmargin=*]
+  \item Submit a single PDF generated from this \LaTeX{} file.
+  \item Show your work clearly. When you write code, include the exact code you ran (copy/paste into a \texttt{lstlisting} block) and the relevant output.
+  \item Unless stated otherwise, you may use standard Python libraries covered in Lecture 1--2: built-ins, NumPy, and basic plotting tools if introduced in your section.
+  \item If you use AI tools, follow the course AI-use policy and cite what you used and how (briefly).
+\end{itemize}
+
+\section*{Problem 1: Thinking Like a Computer (Algorithms)}
+(10 points)
+
+\begin{enumerate}[label=\alph*)]
+  \item Write a step-by-step algorithm (plain English) for computing the mean (average) of a list of numbers.
+  \item Write a step-by-step algorithm (plain English) for finding the maximum value in a 1D array, without using any built-in \texttt{max} or NumPy convenience functions.
+\end{enumerate}
+
+\section*{Problem 2: Variables, Types, and Common Errors}
+(15 points)
+
+\begin{enumerate}[label=\alph*)]
+  \item Explain the difference between the number \texttt{5} and the string \texttt{"5"}. Give one example of an operation that behaves differently for each.
+  \item The code below throws an error. Rewrite the code so it runs, and briefly explain what was wrong.
+
+\begin{lstlisting}[language=Python]
+number = 5
+text = "5"
+print(text + number)
+\end{lstlisting}
+
+  \item The code below throws an error. Rewrite the code so it runs, and briefly explain what was wrong.
+
+\begin{lstlisting}[language=Python]
+radius = 2
+pi = 3.14159
+surface_area = 4 * Pi * radius**2
+print("The sphere surface area is", surface_area)
+\end{lstlisting}
+
+\end{enumerate}
+
+\section*{Problem 3: NumPy Arrays (Indexing, Slicing, Shape)}
+(25 points)
+
+\begin{enumerate}[label=\alph*)]
+  \item Create a 1D NumPy array containing the odd integers from 1 to 21 (inclusive).
+  \item Print every 3rd element of that array (starting from the first element of the array).
+  \item How many elements remain if you remove every 3rd element? Show your reasoning and/or code.
+  \item Create the following 2D array as a NumPy array:
+
+\begin{center}
+\begin{tabular}{ccccc}
+\toprule
+0 & 0 & 1 & 0 & 0\\
+0 & 2 & 0 & 2 & 0\\
+3 & 0 & 0 & 0 & 3\\
+0 & 2 & 0 & 2 & 0\\
+0 & 0 & 1 & 0 & 0\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+  \item Print the 3rd row (be careful about Python indexing).
+  \item Compute the total number of elements in the array using its \texttt{.shape}.
+  \item Replace the last row with \texttt{[99, 99, 99, 99, 99]} and print the modified array.
+\end{enumerate}
+
+\section*{Problem 4: Loading and Inspecting Data (CSV)}
+(25 points)
+
+In Lecture 2 you loaded a growth curve CSV file into a NumPy array.
+
+\begin{enumerate}[label=\alph*)]
+  \item Load \texttt{Lecture\_2/data/growth\_curve1.csv} using \texttt{np.loadtxt(..., delimiter=",")}. Include the code you used.
+  \item Print the shape of the loaded array.
+  \item Print the first 5 rows and the last row.
+  \item Extract the time column and OD column into 1D arrays called \texttt{time} and \texttt{od}.
+  \item Compute the total duration of the experiment in hours.
+\end{enumerate}
+
+\section*{Problem 5: Saving Derived Data}
+(15 points)
+
+\begin{enumerate}[label=\alph*)]
+  \item Create a normalized OD array \texttt{od\_norm} by dividing all OD values by the first OD measurement.
+  \item Create a 2D array with time in hours and \texttt{od\_norm} as columns.
+  \item Save the result as a new CSV file (do \emph{not} overwrite the original). Name it \texttt{growth\_curve1\_hr\_norm.csv} and place it alongside the original in the same \texttt{data/} directory.
+\end{enumerate}
+
+\section*{Optional (Extra Credit): Two Files, Lists, and Change in OD}
+(+5 points)
+
+Load both \texttt{growth\_curve1.csv} and \texttt{growth\_curve2.csv} using a Python list of filenames. For each dataset, compute the change in OD from the first to last time point. Print the two values.
+
+\vspace{8pt}
+\noindent\textbf{Checklist before submitting:}
+\begin{itemize}[leftmargin=*]
+  \item PDF compiles without errors.
+  \item All questions answered and labeled.
+  \item Code included where requested.
+  \item Output/units reported where relevant.
+\end{itemize}
+
+\end{document}
